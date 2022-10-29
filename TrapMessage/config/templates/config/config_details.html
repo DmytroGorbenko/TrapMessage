@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h3>Configuration details:</h3>
+    <ul>
+        <li>Name: {{config.name}}</li>
+        <li>IP Address: {{config.ip}}</li>
+        <li>UDP Port: {{config.udp}}</li>
+        <li>Community: {{config.community}}</li>
+    </ul>
+    <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'config:send' config.id %}">Send</a>
+    {% if perms.config.delete_config %}
+    <a style="text-decoration: none; " class="btn btn-dark" href="{{config.get_update_url}}">Edit</a>
+    <a style="text-decoration: none; " class="btn btn-dark" href="{{config.get_delete_url}}">Delete</a>
+    {% endif %}
+</div>
+{% endblock %}}

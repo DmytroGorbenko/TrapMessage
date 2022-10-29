@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h3 style="margin: auto">Configuration "{{name}}" was used to send TrapMessage!</h3>
+        <h3>Configuration details:</h3>
+            <ul>
+                <li>Name: {{name}}</li>
+                <li>IP Address: {{ip}}</li>
+                <li>UDP Port: {{udp}}</li>
+                <li>Community: {{community}}</li>
+            </ul>
+        <h3>Sending details:</h3>
+            <ul>
+                <li>Trap send time: {{time}}</li>
+                <li>Traps per sec: {{traps}}</li>
+            </ul>
+        <h3 style="font-style: initial">{{message}}</h3>
+    </div>
+{% endblock %}

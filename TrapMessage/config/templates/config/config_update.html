@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button class="btn btn-dark" type="submit">Change</button>
+            <a style="text-decoration: none; " class="btn btn-dark" href="{{config.get_absolute_url}}">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

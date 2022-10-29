@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div>
+    <h3>Configurations used this session:</h3>
+    <hr>
+    {%if configs%}
+        {% for conf in configs %}
+        <h6><a href='{{conf.get_absolute_url}}'>{{conf.name}}</a> | {{conf.ip}} | {{conf.udp}} | {{conf.community}}</h6>
+        <hr>
+        {% endfor %}
+    {% else %}
+        <h6>You haven`t used any <a href="{% url 'config:config_list' %}">configurations</a> this session!</h6>
+    {% endif %}
+</div>
+{% endblock %}

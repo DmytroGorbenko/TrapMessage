@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div>
+    <hr>
+    {% for conf in configs %}
+    <h6><a href='{{conf.get_absolute_url}}'>{{conf.name}}</a> | {{conf.ip}} | {{conf.udp}} | {{conf.community}}</h6>
+    <hr>
+    {% endfor %}
+</div>
+{% endblock %}
