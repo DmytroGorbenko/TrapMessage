@@ -29,6 +29,9 @@
                             {% endif %}
                         </ul>
                     </li>
+                    {% if user.is_superuser %}
+                        <li><a class="nav-link" href="admin/">Admin panel</a></li>
+                    {% endif %}
                 </ul>
             </div>
             <div>
