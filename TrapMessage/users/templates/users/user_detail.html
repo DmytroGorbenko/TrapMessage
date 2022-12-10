@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h3>User details:</h3>
+    <ul>
+        <li>Username: {{member.username}}</li>
+        <li>First name: {{member.first_name}}</li>
+        <li>Last name: {{member.last_name}}</li>
+        <li>Status: {{member.groups.all.0}}</li>
+    </ul>
+    <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_update' member.id %}">Edit</a>
+    <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:password_change' member.id %}">Change Password</a>
+    <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_delete' member.id %}">Delete</a>
+</div>
+{% endblock %}}

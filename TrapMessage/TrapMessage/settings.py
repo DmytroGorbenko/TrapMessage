@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'config',
+    'users',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -145,6 +146,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'config:config_list'
-LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'users:login'
+# LOGIN_REDIRECT_URL = 'config:config_list'
+LOGOUT_REDIRECT_URL = 'users:login'

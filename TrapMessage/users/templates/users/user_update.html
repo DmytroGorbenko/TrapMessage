@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button class="btn btn-dark" type="submit">Change</button>
+            <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_details' index%}">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div>
+    <h2>You sure to delete this user? <b>{{ member.username }}</b></h2>
+    <form method="POST">
+            {% csrf_token %}
+        <div>
+            <button class="btn btn-dark white-text" type="submit">Delete</button>
+            <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_details' index %}">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
