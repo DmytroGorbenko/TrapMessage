@@ -2,7 +2,7 @@
 
 {% block content%}
 <div>
-    <h3>Configurations used this session:</h3>
+    <h3>Використані цієї сессії конфігурації:</h3>
     <hr>
     {%if configs%}
         {% for conf in configs %}
@@ -10,7 +10,7 @@
         <hr>
         {% endfor %}
     {% else %}
-        <h6>You haven`t used any <a href="{% url 'config:config_list' %}">configurations</a> this session!</h6>
+        <h6>Ви ще не використовували жодної <a href="{% url 'config:config_list' %}">конфігурації</a> цієї сессії!</h6>
     {% endif %}
 </div>
 {% endblock %}

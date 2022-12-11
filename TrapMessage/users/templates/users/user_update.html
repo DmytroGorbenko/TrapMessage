@@ -6,8 +6,8 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{form|crispy}}
-            <button class="btn btn-dark" type="submit">Change</button>
-            <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_details' index%}">Cancel</a>
+            <button class="btn btn-dark" type="submit">Змінити</button>
+            <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_details' index%}">Відміна</a>
         </form>
     </div>
 {% endblock %}

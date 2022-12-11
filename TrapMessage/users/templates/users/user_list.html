@@ -7,7 +7,7 @@
     <hr>
     {% for user in users %}
     {% if not user.is_superuser %}
-    <h6><a href='{% url "users:user_details" user.id %}'>{{user.get_username}}</a> | {{user.groups.all.0}}</h6>
+    <h6><a href='{% url "users:user_details" user.id %}'>{{user.get_username}}</a> | {{user.first_name}} {{user.last_name}} | {{user.groups.all.0}}</h6>
     <hr>
     {% endif %}
     {% endfor %}

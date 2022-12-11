@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Config(models.Model):
-    name = models.CharField(max_length=30, unique=True, verbose_name="Name")
+    name = models.CharField(max_length=30, unique=True, verbose_name="Назва")
     ip = models.GenericIPAddressField(verbose_name="IP Address")
     udp = models.IntegerField(verbose_name="UDP Port")
     community = models.CharField(max_length=20, verbose_name="Community")

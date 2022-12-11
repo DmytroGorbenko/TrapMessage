@@ -55,7 +55,7 @@ class ConfigDetailView(LoginRequiredMixin, DetailView):
 
 
 class ConfigCreateView(GroupRequiredMixin, CreateView):
-    group_required = u"mod"
+    group_required = u"Модератор"
     model = Config
     fields = ['name', 'ip', 'udp', 'community']
     template_name = "config/config_create.html"
@@ -63,7 +63,7 @@ class ConfigCreateView(GroupRequiredMixin, CreateView):
 
 
 class ConfigUpdateView(GroupRequiredMixin, UpdateView):
-    group_required = u"mod"
+    group_required = u"Модератор"
     model = Config
     context_object_name = 'config'
     fields = ['name', 'ip', 'udp', 'community']
@@ -71,7 +71,7 @@ class ConfigUpdateView(GroupRequiredMixin, UpdateView):
 
 
 class ConfigDeleteView(GroupRequiredMixin, DeleteView):
-    group_required = u"mod"
+    group_required = u"Модератор"
     model = Config
     context_object_name = 'config'
     success_url = reverse_lazy('config:config_list')

@@ -19,20 +19,20 @@
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
                     <li class="nav-item dropend">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="true">Options</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="true">Опції</a>
                         {% if user.is_superuser %}
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown1">
-                            <li><a class="dropdown-item" href="{% url 'users:user_list' %}">All users</a></li>
+                            <li><a class="dropdown-item" href="{% url 'users:user_list' %}">Усі користувачі</a></li>
                             {% if perms.config.delete_config %}
-                                <li><a class="dropdown-item" href="{% url 'users:user_create' %}">Add user</a></li>
+                                <li><a class="dropdown-item" href="{% url 'users:user_create' %}">Додати користувача</a></li>
                             {% endif %}
                         </ul>
                         {% else %}
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown1">
-                            <li><a class="dropdown-item" href="{% url 'config:send_list'%}">My Configurations</a></li>
-                            <li><a class="dropdown-item" href="{% url 'config:config_list' %}">All Configurations</a></li>
+                            <li><a class="dropdown-item" href="{% url 'config:send_list'%}">Мої конфігурації</a></li>
+                            <li><a class="dropdown-item" href="{% url 'config:config_list' %}">Усі конфігурації</a></li>
                             {% if perms.config.delete_config %}
-                                <li><a class="dropdown-item" href="{% url 'config:config_create' %}">Add Configuration</a></li>
+                                <li><a class="dropdown-item" href="{% url 'config:config_create' %}">Додати конфігурацію</a></li>
                             {% endif %}
                         </ul>
                     </li>
@@ -43,9 +43,9 @@
             <div>
                 <ul class="navbar-nav">
                 {% if user.is_authenticated %}
-                    <span class="navbar-text">Logged in as {{user.username}}</span>
+                    <span class="navbar-text">Авторизовано: {{user.username}}</span>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <a class="nav-link" href="/logout">Вийти</a>
                     </li>
                 {% endif %}
                 </ul>
@@ -53,8 +53,16 @@
         </div>
     </nav>
         <div class="container-fluid">
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <div class="alert alert-success" role="alert">{{ message }}</div>
+                    {% else %}
+                    <div class="alert alert-danger" role="alert">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
             {% block content %}
-                <h1>Hello, world!</h1>
             {% endblock %}
         </div>
     </body>

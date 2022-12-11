@@ -3,12 +3,13 @@
 
 {% block content %}
 <div>
-    <h2>You sure to delete this user? <b>{{ member.username }}</b></h2>
+    <h2>Ви впевнені у видаленні цього користувача?</h2>
+    <h2><b>{{ member.username }}</b></h2>
     <form method="POST">
             {% csrf_token %}
         <div>
-            <button class="btn btn-dark white-text" type="submit">Delete</button>
-            <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_details' index %}">Cancel</a>
+            <button class="btn btn-dark white-text" type="submit">Видалити</button>
+            <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_details' index %}">Відміна</a>
         </div>
     </form>
 </div>

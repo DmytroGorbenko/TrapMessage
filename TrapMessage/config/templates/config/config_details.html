@@ -4,15 +4,15 @@
 <div>
     <h3>Configuration details:</h3>
     <ul>
-        <li>Name: {{config.name}}</li>
+        <li>Назва: {{config.name}}</li>
         <li>IP Address: {{config.ip}}</li>
         <li>UDP Port: {{config.udp}}</li>
         <li>Community: {{config.community}}</li>
     </ul>
-    <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'config:send' config.id %}">Send</a>
+    <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'config:send' config.id %}">Надіслати</a>
     {% if perms.config.delete_config %}
-    <a style="text-decoration: none; " class="btn btn-dark" href="{{config.get_update_url}}">Edit</a>
-    <a style="text-decoration: none; " class="btn btn-dark" href="{{config.get_delete_url}}">Delete</a>
+    <a style="text-decoration: none; " class="btn btn-dark" href="{{config.get_update_url}}">Змінити</a>
+    <a style="text-decoration: none; " class="btn btn-dark" href="{{config.get_delete_url}}">Видалити</a>
     {% endif %}
 </div>
 {% endblock %}}

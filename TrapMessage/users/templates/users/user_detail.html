@@ -4,13 +4,19 @@
 <div>
     <h3>User details:</h3>
     <ul>
-        <li>Username: {{member.username}}</li>
-        <li>First name: {{member.first_name}}</li>
-        <li>Last name: {{member.last_name}}</li>
-        <li>Status: {{member.groups.all.0}}</li>
+        <li>Логін: {{member.username}}</li>
+        <li>Ім'я: {{member.first_name}}</li>
+        <li>Прізвище: {{member.last_name}}</li>
+        {% if not member.is_staff %}
+        <li>Статус: {{member.groups.all.0}}</li>
+        {% endif %}
     </ul>
-    <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_update' member.id %}">Edit</a>
-    <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:password_change' member.id %}">Change Password</a>
-    <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_delete' member.id %}">Delete</a>
+    <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:password_change' member.id %}">Змінити пароль</a>
+    {% if not member.is_staff %}
+        <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_update' member.id %}">Змінити</a>
+        <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:user_delete' member.id %}">Видалити</a>
+    {% else %}
+        <a style="text-decoration: none; " class="btn btn-dark" href="{% url 'users:admin_update' member.id %}">Змітини</a>
+    {% endif %}
 </div>
 {% endblock %}}
